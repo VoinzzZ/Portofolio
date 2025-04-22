@@ -9,13 +9,15 @@ import { GoProjectSymlink } from "react-icons/go";
 import { IoIosContact } from "react-icons/io";
 import { BsTelephonePlus } from "react-icons/bs";
 import About from './pages/About/About .jsx';
+import Projects from './pages/Projects/Projects.jsx';
+import Contact from './pages/Contact/Contact.jsx';
 
 const App = () => {
   const items = [
     { icon: <IoHomeOutline size={18} color="white" />, label: 'Home', onClick: () => document.getElementById('home').scrollIntoView({ behavior: 'smooth' }) },
     { icon: <IoIosContact size={18} color="white" />, label: 'About', onClick: () => document.getElementById('about').scrollIntoView({ behavior: 'smooth' }) },
-    { icon: <GoProjectSymlink size={18} color="white" />, label: 'Poject', onClick: () => alert('Project!') },
-    { icon: <BsTelephonePlus size={18} color="white" />, label: 'Contact', onClick: () => alert('Contact!') },
+    { icon: <GoProjectSymlink size={18} color="white" />, label: 'Poject', onClick: () => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }) },
+    { icon: <BsTelephonePlus size={18} color="white" />, label: 'Contact', onClick: () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }) },
   ];
 
   return (
@@ -57,6 +59,14 @@ const App = () => {
 
           <section id="about" className="min-h-screen w-full">
             <About />
+          </section>
+
+          <section id="projects" className='min-h-screen w-full'>
+            <Projects />
+          </section>
+
+          <section id="contact" className='min-h-screen w-full'>
+            <Contact />
           </section>
         </main>
       </ClickSpark>
