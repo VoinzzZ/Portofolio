@@ -11,6 +11,7 @@ import { BsTelephonePlus } from "react-icons/bs";
 import About from './pages/About/About .jsx';
 import Projects from './pages/Projects/Projects.jsx';
 import Contact from './pages/Contact/Contact.jsx';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const App = () => {
   const items = [
@@ -22,6 +23,7 @@ const App = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-black">
+      <SpeedInsights />
       <ClickSpark
         sparkColor="#fff"
         sparkSize={10}
