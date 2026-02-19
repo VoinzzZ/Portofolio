@@ -195,7 +195,7 @@ const schema: SchemaConfig = {
 
 // social links
 const sameAs: SameAsConfig = {
-  linkedin: "https://www.linkedin.com/in/antony-kurniawan-nugroho-079b5626b/",
+  linkedin: "https://www.linkedin.com/in/antony-kurniawan-374a06332/",
 };
 
 // social sharing configuration for blog posts

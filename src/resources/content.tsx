@@ -30,7 +30,7 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/antony-kurniawan-nugroho-079b5626b/",
+    link: "https://www.linkedin.com/in/antony-kurniawan-374a06332/",
     essential: true,
   },
   {
@@ -173,9 +173,9 @@ const about: About = {
         images: [],
       },
       {
-        title: "Node Js",
+        title: "Express Js",
         description: (
-          <>Building backend apps with Express.js.</>
+          <>Building backend apps with Express.js. Comfortable with clean architecture and building scalable projects.</>
         ),
         tags: [
           {

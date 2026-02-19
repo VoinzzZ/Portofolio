@@ -9,7 +9,7 @@ import {
   Flex,
   Meta,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { ClickSpark, Footer, Header, RouteGuard, Providers } from "@/components";
 import { Squares } from "@/components/Squares";
 import { baseURL, fonts, style, dataStyle, home } from "@/resources";
 
@@ -145,7 +145,16 @@ export default async function RootLayout({
           <Header />
           <Flex zIndex={2} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
+              <ClickSpark
+                sparkColor="auto"
+                sparkCount={10}
+                sparkSize={12}
+                sparkRadius={22}
+                duration={450}
+                style={{ width: "100%", height: "100%" }}
+              >
+                <RouteGuard>{children}</RouteGuard>
+              </ClickSpark>
             </Flex>
           </Flex>
           <div style={{ position: "relative", zIndex: 2 }}>
