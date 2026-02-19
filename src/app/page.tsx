@@ -47,7 +47,7 @@ export default function Home() {
           {home.featured.display && (
             <FadeContent
               delay={0}
-              duration={600}
+              duration={2000}
               style={{ width: "100%", display: "flex", justifyContent: "center", paddingTop: "16px", paddingBottom: "32px", paddingLeft: "12px" }}
             >
               <Badge
@@ -63,17 +63,17 @@ export default function Home() {
               </Badge>
             </FadeContent>
           )}
-          <FadeContent delay={0.1} duration={700} style={{ width: "100%", paddingBottom: "16px" }}>
+          <FadeContent delay={0.15} duration={2000} style={{ width: "100%", paddingBottom: "16px" }}>
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
           </FadeContent>
-          <FadeContent delay={0.2} duration={700} style={{ width: "100%", paddingBottom: "32px" }}>
+          <FadeContent delay={0.3} duration={2000} style={{ width: "100%", paddingBottom: "32px" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
           </FadeContent>
-          <FadeContent delay={0.35} duration={600} style={{ paddingTop: "12px", paddingLeft: "12px" }}>
+          <FadeContent delay={0.5} duration={2000} style={{ paddingTop: "12px", paddingLeft: "12px" }}>
             <Button
               id="about"
               data-border="rounded"
@@ -99,7 +99,7 @@ export default function Home() {
         </Column>
       </Column>
       {routes["/work"] && (
-        <FadeContent delay={0.1} duration={700} blur style={{ width: "100%" }}>
+        <FadeContent delay={0.1} duration={2000} blur style={{ width: "100%" }}>
           <Projects range={[1, 1]} />
         </FadeContent>
       )}
@@ -109,14 +109,14 @@ export default function Home() {
             <Line maxWidth={48} />
           </Row>
           <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
-            <FadeContent delay={0} duration={600} style={{ flex: 1 }}>
+            <FadeContent delay={0} duration={2000} style={{ flex: 1 }}>
               <Row flex={1} paddingLeft="l" paddingTop="24">
                 <Heading as="h2" variant="display-strong-xs" wrap="balance">
                   Latest from the blog
                 </Heading>
               </Row>
             </FadeContent>
-            <FadeContent delay={0.15} duration={700} blur style={{ flex: 3 }}>
+            <FadeContent delay={0.2} duration={2000} blur style={{ flex: 3 }}>
               <Row flex={3} paddingX="20">
                 <Posts range={[1, 2]} columns="2" />
               </Row>
@@ -128,11 +128,11 @@ export default function Home() {
         </Column>
       )}
       {routes["/work"] && (
-        <FadeContent delay={0.05} duration={700} blur style={{ width: "100%" }}>
+        <FadeContent delay={0.05} duration={2000} blur style={{ width: "100%" }}>
           <Projects range={[2]} />
         </FadeContent>
       )}
-      <FadeContent delay={0.1} duration={700} blur style={{ width: "100%" }}>
+      <FadeContent delay={0.15} duration={2000} blur style={{ width: "100%" }}>
         <ContactCard />
       </FadeContent>
     </Column>
