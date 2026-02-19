@@ -14,7 +14,7 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+const baseURL: string = "https://voinz.dev"; // TODO: ganti dengan domain Anda
 
 const routes: RoutesConfig = {
   "/": true,
@@ -187,17 +187,15 @@ const mailchimp: MailchimpConfig = {
 // default schema data
 const schema: SchemaConfig = {
   logo: "",
-  type: "Organization",
-  name: "Once UI",
+  type: "Person",
+  name: "Antony Kurniawan Nugroho",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "antonynugroho467@gmail.com",
 };
 
 // social links
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  linkedin: "https://www.linkedin.com/in/antony-kurniawan-nugroho-079b5626b/",
 };
 
 // social sharing configuration for blog posts

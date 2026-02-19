@@ -100,9 +100,11 @@ export default function Home() {
           </RevealFx>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
+      {routes["/work"] && (
+        <RevealFx translateY="16" delay={0.6}>
+          <Projects range={[1, 1]} />
+        </RevealFx>
+      )}
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
           <Row fillWidth paddingRight="64">
@@ -123,7 +125,7 @@ export default function Home() {
           </Row>
         </Column>
       )}
-      <Projects range={[2]} />
+      {routes["/work"] && <Projects range={[2]} />}
       <ContactCard />
     </Column>
   );
