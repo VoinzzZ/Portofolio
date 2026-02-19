@@ -3,8 +3,10 @@ import {
   Text,
   Button,
   Avatar,
+  Card,
   Column,
   Badge,
+  Icon,
   Row,
   Schema,
   Meta,
@@ -28,7 +30,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
+    <Column maxWidth="m" gap="0" paddingY="0" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -42,13 +44,27 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth horizontal="center" gap="m">
+      <Column
+        fillWidth
+        horizontal="center"
+        gap="m"
+        paddingTop="4"
+        paddingBottom="12"
+        style={{ minHeight: "calc(100vh - 80px)", display: "flex", justifyContent: "center" }}
+      >
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
             <FadeContent
               delay={0}
               duration={2000}
-              style={{ width: "100%", display: "flex", justifyContent: "center", paddingTop: "16px", paddingBottom: "32px", paddingLeft: "12px" }}
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                paddingTop: "16px",
+                paddingBottom: "32px",
+                paddingLeft: "12px",
+              }}
             >
               <Badge
                 background="brand-alpha-weak"
@@ -99,12 +115,131 @@ export default function Home() {
         </Column>
       </Column>
       {routes["/work"] && (
-        <FadeContent delay={0.1} duration={2000} blur style={{ width: "100%" }}>
-          <Projects range={[1, 1]} />
-        </FadeContent>
+        <Column
+          fillWidth
+          paddingY="12"
+          style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}
+        >
+          <FadeContent delay={0.1} duration={2000} blur style={{ width: "100%" }}>
+            <Projects range={[1, 1]} />
+          </FadeContent>
+        </Column>
       )}
+      <Column
+        fillWidth
+        paddingTop="12"
+        paddingBottom="8"
+        style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}
+      >
+        <Column fillWidth gap="24">
+          <FadeContent delay={0} duration={2000} style={{ width: "100%" }}>
+            <Row fillWidth paddingLeft="l">
+              <Column gap="12" maxWidth="s">
+                <Badge
+                  background="brand-alpha-weak"
+                  paddingX="12"
+                  paddingY="4"
+                  onBackground="neutral-strong"
+                  textVariant="label-default-s"
+                  arrow={false}
+                >
+                  Services
+                </Badge>
+                <Heading as="h2" variant="display-strong-s" wrap="balance">
+                  Focused on product feel, not just code
+                </Heading>
+                <Text variant="heading-default-l" onBackground="neutral-weak" wrap="balance">
+                  I help you turn ideas into experiences that look sharp, feel smooth, and ship fast.
+                </Text>
+              </Column>
+            </Row>
+          </FadeContent>
+          <FadeContent delay={0.15} duration={2000} blur style={{ width: "100%" }}>
+            <Column fillWidth gap="20" marginTop="16">
+              <Row fillWidth gap="20" s={{ direction: "column" }}>
+                <Card
+                  padding="l"
+                  radius="l-4"
+                  border="neutral-alpha-medium"
+                  background="transparent"
+                  style={{ flex: 1 }}
+                >
+                  <Column gap="12">
+                    <Icon name="figma" onBackground="neutral-strong" size="l" />
+                    <Heading as="h3" variant="heading-strong-l">
+                      UI/UX & Visual Design
+                    </Heading>
+                    <Text onBackground="neutral-weak" variant="body-default-m" wrap="balance">
+                      Interface design, design systems, and interactive prototypes focused on clarity.
+                    </Text>
+                  </Column>
+                </Card>
+                <Card
+                  padding="l"
+                  radius="l-4"
+                  border="neutral-alpha-medium"
+                  background="transparent"
+                  style={{ flex: 1 }}
+                >
+                  <Column gap="12">
+                    <Icon name="rocket" onBackground="neutral-strong" size="l" />
+                    <Heading as="h3" variant="heading-strong-l">
+                      Website & Landing Pages
+                    </Heading>
+                    <Text onBackground="neutral-weak" variant="body-default-m" wrap="balance">
+                      Fast, responsive websites that communicate value and convert visitors.
+                    </Text>
+                  </Column>
+                </Card>
+              </Row>
+              <Row fillWidth gap="20" s={{ direction: "column" }}>
+                <Card
+                  padding="l"
+                  radius="l-4"
+                  border="neutral-alpha-medium"
+                  background="transparent"
+                  style={{ flex: 1 }}
+                >
+                  <Column gap="12">
+                    <Icon name="document" onBackground="neutral-strong" size="l" />
+                    <Heading as="h3" variant="heading-strong-l">
+                      Product & Content Support
+                    </Heading>
+                    <Text onBackground="neutral-weak" variant="body-default-m" wrap="balance">
+                      IA, UX writing, and content structure to keep experiences consistent.
+                    </Text>
+                  </Column>
+                </Card>
+                <Card
+                  padding="l"
+                  radius="l-4"
+                  border="neutral-alpha-medium"
+                  background="transparent"
+                  style={{ flex: 1 }}
+                >
+                  <Column gap="12">
+                    <Icon name="arrowUpRightFromSquare" onBackground="neutral-strong" size="l" />
+                    <Heading as="h3" variant="heading-strong-l">
+                      Web & Mobile Feature Updates
+                    </Heading>
+                    <Text onBackground="neutral-weak" variant="body-default-m" wrap="balance">
+                      Improve existing apps with new features, fixes, and UX polish.
+                    </Text>
+                  </Column>
+                </Card>
+              </Row>
+            </Column>
+          </FadeContent>
+        </Column>
+      </Column>
       {routes["/blog"] && (
-        <Column fillWidth gap="24" marginBottom="l">
+        <Column
+          fillWidth
+          gap="24"
+          paddingTop="8"
+          paddingBottom="12"
+          style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}
+        >
           <Row fillWidth paddingRight="64">
             <Line maxWidth={48} />
           </Row>
@@ -128,13 +263,26 @@ export default function Home() {
         </Column>
       )}
       {routes["/work"] && (
-        <FadeContent delay={0.05} duration={2000} blur style={{ width: "100%" }}>
-          <Projects range={[2]} />
-        </FadeContent>
+        <Column
+          fillWidth
+          paddingY="12"
+          style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}
+        >
+          <FadeContent delay={0.05} duration={2000} blur style={{ width: "100%" }}>
+            <Projects range={[2]} />
+          </FadeContent>
+        </Column>
       )}
-      <FadeContent delay={0.15} duration={2000} blur style={{ width: "100%" }}>
-        <ContactCard />
-      </FadeContent>
+      <Column
+        fillWidth
+        paddingTop="12"
+        paddingBottom="16"
+        style={{ minHeight: "80vh", display: "flex", justifyContent: "center" }}
+      >
+        <FadeContent delay={0.15} duration={2000} blur style={{ width: "100%" }}>
+          <ContactCard />
+        </FadeContent>
+      </Column>
     </Column>
   );
 }

@@ -121,9 +121,9 @@ export default async function RootLayout({
             }}
           >
             <Squares
-              direction="diagonal"
-              speed={0.5}
-              squareSize={40}
+              direction="up"
+              speed={0.3}
+              squareSize={100}
             />
           </div>
           {/* Edge vignette / fade overlay */}
