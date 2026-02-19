@@ -102,9 +102,9 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             </Text>
             <Heading variant="display-strong-m">{post.metadata.title}</Heading>
             {post.metadata.subtitle && (
-              <Text 
-                variant="body-default-l" 
-                onBackground="neutral-weak" 
+              <Text
+                variant="body-default-l"
+                onBackground="neutral-weak"
                 align="center"
                 style={{ fontStyle: 'italic' }}
               >
@@ -136,10 +136,10 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Column as="article" maxWidth="s">
             <CustomMDX source={post.content} />
           </Column>
-          
-          <ShareSection 
-            title={post.metadata.title} 
-            url={`${baseURL}${blog.path}/${post.slug}`} 
+
+          <ShareSection
+            title={post.metadata.title}
+            url={`${baseURL}${blog.path}/${post.slug}`}
           />
 
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
@@ -160,6 +160,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
         top="80"
         gap="16"
         m={{ hide: true }}
+        style={{ zIndex: 2 }}
       >
         <HeadingNav fitHeight />
       </Column>
