@@ -3,7 +3,6 @@ import {
   Text,
   Button,
   Avatar,
-  RevealFx,
   Column,
   Badge,
   Row,
@@ -15,6 +14,7 @@ import { home, about, person, baseURL, routes } from "@/resources";
 import { ContactCard } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { FadeContent } from "@/components/FadeContent";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -45,12 +45,10 @@ export default function Home() {
       <Column fillWidth horizontal="center" gap="m">
         <Column maxWidth="s" horizontal="center" align="center">
           {home.featured.display && (
-            <RevealFx
-              fillWidth
-              horizontal="center"
-              paddingTop="16"
-              paddingBottom="32"
-              paddingLeft="12"
+            <FadeContent
+              delay={0}
+              duration={600}
+              style={{ width: "100%", display: "flex", justifyContent: "center", paddingTop: "16px", paddingBottom: "32px", paddingLeft: "12px" }}
             >
               <Badge
                 background="brand-alpha-weak"
@@ -63,19 +61,19 @@ export default function Home() {
               >
                 <Row paddingY="2">{home.featured.title}</Row>
               </Badge>
-            </RevealFx>
+            </FadeContent>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="16">
+          <FadeContent delay={0.1} duration={700} style={{ width: "100%", paddingBottom: "16px" }}>
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
             </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
+          </FadeContent>
+          <FadeContent delay={0.2} duration={700} style={{ width: "100%", paddingBottom: "32px" }}>
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
+          </FadeContent>
+          <FadeContent delay={0.35} duration={600} style={{ paddingTop: "12px", paddingLeft: "12px" }}>
             <Button
               id="about"
               data-border="rounded"
@@ -97,13 +95,13 @@ export default function Home() {
                 {about.title}
               </Row>
             </Button>
-          </RevealFx>
+          </FadeContent>
         </Column>
       </Column>
       {routes["/work"] && (
-        <RevealFx translateY="16" delay={0.6}>
+        <FadeContent delay={0.1} duration={700} blur style={{ width: "100%" }}>
           <Projects range={[1, 1]} />
-        </RevealFx>
+        </FadeContent>
       )}
       {routes["/blog"] && (
         <Column fillWidth gap="24" marginBottom="l">
@@ -111,22 +109,32 @@ export default function Home() {
             <Line maxWidth={48} />
           </Row>
           <Row fillWidth gap="24" marginTop="40" s={{ direction: "column" }}>
-            <Row flex={1} paddingLeft="l" paddingTop="24">
-              <Heading as="h2" variant="display-strong-xs" wrap="balance">
-                Latest from the blog
-              </Heading>
-            </Row>
-            <Row flex={3} paddingX="20">
-              <Posts range={[1, 2]} columns="2" />
-            </Row>
+            <FadeContent delay={0} duration={600} style={{ flex: 1 }}>
+              <Row flex={1} paddingLeft="l" paddingTop="24">
+                <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                  Latest from the blog
+                </Heading>
+              </Row>
+            </FadeContent>
+            <FadeContent delay={0.15} duration={700} blur style={{ flex: 3 }}>
+              <Row flex={3} paddingX="20">
+                <Posts range={[1, 2]} columns="2" />
+              </Row>
+            </FadeContent>
           </Row>
           <Row fillWidth paddingLeft="64" horizontal="end">
             <Line maxWidth={48} />
           </Row>
         </Column>
       )}
-      {routes["/work"] && <Projects range={[2]} />}
-      <ContactCard />
+      {routes["/work"] && (
+        <FadeContent delay={0.05} duration={700} blur style={{ width: "100%" }}>
+          <Projects range={[2]} />
+        </FadeContent>
+      )}
+      <FadeContent delay={0.1} duration={700} blur style={{ width: "100%" }}>
+        <ContactCard />
+      </FadeContent>
     </Column>
   );
 }
