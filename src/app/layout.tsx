@@ -143,7 +143,7 @@ export default async function RootLayout({
           />
           <Flex fillWidth minHeight="16" s={{ hide: true }} />
           <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
+          <Flex zIndex={2} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
               <RouteGuard>{children}</RouteGuard>
             </Flex>
