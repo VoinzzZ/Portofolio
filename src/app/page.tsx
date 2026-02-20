@@ -184,10 +184,10 @@ export default function Home() {
                   <Column gap="12">
                     <Icon name="rocket" onBackground="neutral-strong" size="l" />
                     <Heading as="h3" variant="heading-strong-l">
-                      Website & Landing Pages
+                      Website & Mobile
                     </Heading>
                     <Text onBackground="neutral-weak" variant="body-default-m" wrap="balance">
-                      Fast, responsive websites that communicate value and convert visitors.
+                      Fast, responsive websites and mobile apps that communicate value and convert users.
                     </Text>
                   </Column>
                 </Card>

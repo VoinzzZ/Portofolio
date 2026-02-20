@@ -66,4 +66,30 @@
   --scheme-neutral-600-30: rgba(137,152,159,0.3);
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
-}*/
+}*/ 
+
+/* Prevent horizontal scroll on mobile for MDX content */
+article {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+article pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+article table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+article img,
+article video,
+article iframe {
+  max-width: 100%;
+  height: auto;
+}
