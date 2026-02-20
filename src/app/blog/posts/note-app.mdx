@@ -8,6 +8,14 @@ image: "/images/note-app-login.png"
 
 Full‑stack note‑taking application with authentication, CRUD, pinning, tags, search, and dark/light theme. Frontend uses React 19 with Vite + Tailwind; backend uses Node.js, Express, and MongoDB with JWT for auth.
 
+## Overview
+Note App is built to feel fast and focused: quick capture, easy organization, and clean reading. The app emphasizes task flow (capture → tag → pin → find) with a minimal UI that stays usable on mobile.
+
+## Screenshots
+![Note App login screen](/images/note-app-login.png)
+![Notes dashboard with search, tags, and pinning](/images/note-app-2.png)
+![Note editor modal and tag management](/images/note-app-3.png)
+
 ## Demo (Local)
 - Backend: `http://localhost:8000`
 - Frontend: `http://localhost:5173`
@@ -15,13 +23,20 @@ Full‑stack note‑taking application with authentication, CRUD, pinning, tags,
 ## Features
 - JWT auth: sign up, login, persistent sessions.
 - CRUD notes with rich text fields, tags, and pin/unpin.
-- Search by title/content.
+- Search by title/content + tags filter.
 - Responsive UI with dark/light theme toggle.
 - Toast notifications and modal-based editor.
+- Optimistic updates for smooth note interactions.
 
 ## Tech Stack
 - **Frontend:** React 19, Vite, Tailwind CSS, React Router, Axios, React Modal, React Icons.
 - **Backend:** Node.js, Express.js, MongoDB via Mongoose, JWT, dotenv, cors, nodemon.
+
+## UX Highlights
+- Focused editor with keyboard-first flow and clear focus states.
+- Pinning to keep important notes at the top.
+- Tag chips to group ideas and filter quickly.
+- Dark/light theme tuned for low‑glare reading.
 
 ## Project Structure
 ```

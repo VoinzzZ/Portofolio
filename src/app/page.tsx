@@ -121,7 +121,7 @@ export default function Home() {
           style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}
         >
           <FadeContent delay={0.1} duration={2000} blur style={{ width: "100%" }}>
-            <Projects range={[1, 1]} />
+            <Projects range={[1, 1]} exclude={["note-app"]} />
           </FadeContent>
         </Column>
       )}
@@ -269,7 +269,7 @@ export default function Home() {
           style={{ minHeight: "100vh", display: "flex", justifyContent: "center" }}
         >
           <FadeContent delay={0.05} duration={2000} blur style={{ width: "100%" }}>
-            <Projects range={[2]} />
+            <Projects include={["note-app"]} />
           </FadeContent>
         </Column>
       )}
