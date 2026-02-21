@@ -8,10 +8,26 @@
     mask-size: 100% 100%;
 }
 
+.mobileInfo {
+    position: fixed;
+    top: var(--static-space-12);
+    left: 0;
+    right: 0;
+    padding: 0 var(--static-space-12);
+    z-index: 11;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media (max-width: breakpoints.$s) {
     .position {
         top: auto;
         bottom: var(--static-space-24);
+    }
+
+    .mobileInfo {
+        display: flex;
     }
 
     .mask {

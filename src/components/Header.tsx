@@ -60,6 +60,25 @@ export const Header = () => {
         zIndex={9}
       />
       <Row
+        hide
+        className={styles.mobileInfo}
+        fillWidth
+        horizontal="between"
+        s={{ hide: false, horizontal: "between" }}
+        vertical="center"
+        textVariant="body-default-s"
+        gap="12"
+        padding="8"
+      >
+        <Row direction="column" gap="2" style={{ flex: 1 }}>
+          {display.location && <Row>{person.location}</Row>}
+          <ViewCounter />
+        </Row>
+        <Flex horizontal="end" style={{ flex: 1, textAlign: "right" }}>
+          {display.time && <TimeDisplay timeZone={person.location} />}
+        </Flex>
+      </Row>
+      <Row
         fitHeight
         className={styles.position}
         position="sticky"
