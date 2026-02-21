@@ -7,6 +7,7 @@ import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
+import { ViewCounter } from "./ViewCounter";
 import styles from "./Header.module.scss";
 
 type TimeDisplayProps = {
@@ -73,7 +74,10 @@ export const Header = () => {
         }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+          <Row s={{ hide: true }} direction="column" gap="2">
+            {display.location && <Row>{person.location}</Row>}
+            <ViewCounter />
+          </Row>
         </Row>
         <Row fillWidth horizontal="center">
           <Row
