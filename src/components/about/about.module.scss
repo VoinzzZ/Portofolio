@@ -16,6 +16,11 @@
     width: 100%;
 }
 
+.avatar {
+    position: sticky;
+    top: 64px;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
@@ -31,5 +36,10 @@
 
     .mainContent {
         margin-top: var(--static-space-16);
+    }
+
+    .avatar {
+        position: relative;
+        top: 0;
     }
 }
