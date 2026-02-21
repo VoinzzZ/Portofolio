@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, Row, Text, ToggleButton } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -68,14 +68,34 @@ export const Header = () => {
         vertical="center"
         textVariant="body-default-s"
         gap="12"
-        padding="8"
+        padding="12"
       >
         <Row direction="column" gap="2" style={{ flex: 1 }}>
-          {display.location && <Row>{person.location}</Row>}
-          <ViewCounter />
+          <div className={`${styles.mobileInfoGroup} ${styles.mobileInfoGroupLeft}`}>
+            {display.location && (
+              <Text
+                className={styles.mobileInfoLabel}
+                variant="body-default-s"
+                onBackground="brand-weak"
+              >
+                {person.location}
+              </Text>
+            )}
+            <ViewCounter onBackground="brand-weak" className={styles.mobileInfoLabel} />
+          </div>
         </Row>
         <Flex horizontal="end" style={{ flex: 1, textAlign: "right" }}>
-          {display.time && <TimeDisplay timeZone={person.location} />}
+          <div className={`${styles.mobileInfoGroup} ${styles.mobileInfoGroupRight}`}>
+            {display.time && (
+              <Text
+                className={styles.mobileInfoLabel}
+                variant="body-default-s"
+                onBackground="brand-weak"
+              >
+                <TimeDisplay timeZone={person.location} />
+              </Text>
+            )}
+          </div>
         </Flex>
       </Row>
       <Row
@@ -207,7 +227,11 @@ export const Header = () => {
             gap="20"
           >
             <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
+              {display.time && (
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  <TimeDisplay timeZone={person.location} />
+                </Text>
+              )}
             </Flex>
           </Flex>
         </Flex>

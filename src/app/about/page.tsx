@@ -52,7 +52,7 @@ export default function About() {
     },
   ];
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="xl" className={styles.page}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -86,8 +86,8 @@ export default function About() {
               top="64"
               fitHeight
               position="sticky"
-              s={{ position: "relative" }}
-              xs={{ position: "relative" }}
+              s={{ position: "relative", top: "0" }}
+              xs={{ position: "relative", top: "0" }}
               minWidth="160"
               paddingX="l"
               paddingBottom="xl"
@@ -112,7 +112,7 @@ export default function About() {
             </Column>
           </FadeContent>
         )}
-        <Column className={styles.blockAlign} flex={9} maxWidth={40}>
+        <Column className={`${styles.blockAlign} ${styles.mainContent}`} flex={9} maxWidth={40}>
           {/* Hero — name, role, social */}
           <FadeContent delay={0.15} duration={2000}>
             <Column
@@ -130,6 +130,7 @@ export default function About() {
                   radius="full"
                   padding="4"
                   gap="8"
+                  marginTop="24"
                   marginBottom="m"
                   vertical="center"
                   className={styles.blockAlign}

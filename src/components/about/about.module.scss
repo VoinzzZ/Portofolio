@@ -8,6 +8,14 @@
     }
 }
 
+.page {
+    padding-top: var(--static-space-12);
+}
+
+.mainContent {
+    width: 100%;
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;
@@ -15,5 +23,13 @@
 
     .blockAlign {
         align-self: center;
+    }
+
+    .page {
+        padding-top: var(--static-space-8);
+    }
+
+    .mainContent {
+        margin-top: var(--static-space-16);
     }
 }

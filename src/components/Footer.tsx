@@ -11,7 +11,7 @@ export const Footer = () => {
       <FadeContent delay={0.1} duration={600} style={{ width: "100%" }}>
         <Row
           className={styles.mobile}
-          maxWidth="m"
+          maxWidth="xl"
           paddingY="8"
           paddingX="16"
           gap="16"
@@ -37,4 +37,3 @@ export const Footer = () => {
     </Row>
   );
 };
-

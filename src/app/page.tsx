@@ -30,7 +30,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="0" paddingY="0" horizontal="center">
+    <Column maxWidth="xl" gap="0" paddingY="0" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}

@@ -3,7 +3,15 @@
 import { useEffect, useState } from "react";
 import { Row, Text } from "@once-ui-system/core";
 
-export const ViewCounter = () => {
+type ViewCounterProps = {
+  onBackground?: string;
+  className?: string;
+};
+
+export const ViewCounter = ({
+  onBackground = "neutral-weak",
+  className,
+}: ViewCounterProps) => {
   const [viewCount, setViewCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -23,7 +31,7 @@ export const ViewCounter = () => {
   if (viewCount === null) {
     return (
       <Row gap="4" vertical="center">
-        <Text variant="body-default-xs" onBackground="neutral-weak">
+        <Text className={className} variant="body-default-xs" onBackground={onBackground}>
           Loading views...
         </Text>
       </Row>
@@ -32,7 +40,7 @@ export const ViewCounter = () => {
 
   return (
     <Row gap="4" vertical="center">
-      <Text variant="body-default-xs" onBackground="neutral-weak">
+      <Text className={className} variant="body-default-xs" onBackground={onBackground}>
         {viewCount.toLocaleString()} views
       </Text>
     </Row>

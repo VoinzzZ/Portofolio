@@ -9,15 +9,34 @@
 }
 
 .mobileInfo {
-    position: fixed;
-    top: var(--static-space-12);
-    left: 0;
-    right: 0;
-    padding: 0 var(--static-space-12);
-    z-index: 11;
+    position: relative;
+    z-index: 2;
     display: none;
     justify-content: space-between;
     align-items: center;
+}
+
+.mobileInfoLabel {
+    color: #fff;
+}
+
+.mobileInfoGroup {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.mobileInfoGroupLeft {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.mobileInfoGroupRight {
+    align-items: flex-end;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 @media (max-width: breakpoints.$s) {
