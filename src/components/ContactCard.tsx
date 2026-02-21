@@ -27,7 +27,7 @@ export const ContactCard: React.FC<React.ComponentProps<typeof Column>> = ({ ...
                 fillWidth
                 gap="xl"
                 vertical="start"
-                s={{ direction: "column", gap: "l" }}
+                s={{ direction: "column" }}
             >
                 {/* Left Column - Hire/Collaboration Text */}
                 <Column flex={1} gap="m" vertical="start">

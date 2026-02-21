@@ -86,8 +86,8 @@ export default function About() {
               top="64"
               fitHeight
               position="sticky"
-              s={{ position: "relative", top: "0" }}
-              xs={{ position: "relative", top: "0" }}
+              s={{ position: "relative" }}
+              xs={{ position: "relative" }}
               minWidth="160"
               paddingX="l"
               paddingBottom="xl"
