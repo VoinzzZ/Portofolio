@@ -1,6 +1,6 @@
-# 🧑‍💻 Antony Kurniawan — Portfolio
+# Antony Kurniawan — Portfolio
 
-Personal portfolio website built with **Next.js**, **Once UI**, and **MDX** — showcasing my projects, blog posts, and skills as a Software Engineer based in Surabaya, Indonesia.
+A personal portfolio website built with Next.js, Once UI, and MDX. This repository serves as a showcase of my projects, technical articles, and professional experience as a Software Engineer based in Surabaya, Indonesia.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
@@ -9,118 +9,113 @@ Personal portfolio website built with **Next.js**, **Once UI**, and **MDX** — 
 
 ---
 
-## ✨ Features
+## Features
 
-- **Blog** — MDX-based blog posts showcasing projects and learnings from GitHub repos
-- **Work** — Project showcase with descriptions and media
-- **About / CV** — Work experience, education, and technical skills
-- **Gallery** — Photo gallery section
-- **SEO** — Automatic open-graph & metadata generation
-- **Responsive** — Optimized for all screen sizes
+- **MDX-Powered Blog & Work Showcase**: Write rich content with markdown and embedded React components for articles and project case studies.
+- **Dynamic Content Management**: Centralized configuration for all personal information, social links, and site metadata.
+- **SEO Optimized**: Automated Open Graph tags and metadata generation for better search visibility.
+- **Responsive Design**: Fluid layouts optimized for diverse device screen sizes leveraging Once UI components.
 
-## 🛠️ Tech Stack
+## Tech Stack Architecture
 
-| Technology | Description |
+| Technology | Purpose |
 |---|---|
-| **Next.js 16** | React framework |
-| **TypeScript** | Type-safe JavaScript |
-| **Once UI** | Component library & design system |
-| **MDX** | Markdown + JSX for blog/work content |
-| **Sass** | Styling |
+| **Next.js 16** | Core framework leveraging App Router for optimized rendering and routing. |
+| **TypeScript** | Ensures type safety and improves maintainability across the codebase. |
+| **Once UI** | Primary design system and component library providing a cohesive visual language. |
+| **MDX** | Content authoring format combining Markdown syntax with JSX. |
+| **Sass** | Advanced styling capabilities for custom component behavior. |
 
-## 📁 Project Structure
+## Repository Structure
 
-```
+```text
 src/
 ├── app/
-│   ├── blog/posts/        # Blog posts (.mdx files)
-│   ├── work/projects/     # Work/project pages (.mdx files)
-│   ├── about/             # About page
-│   └── gallery/           # Gallery page
-├── components/            # Reusable components
+│   ├── blog/posts/        # MDX source files for blog articles
+│   ├── work/projects/     # MDX source files for project showcases
+│   ├── about/             # Resume and professional experience view
+│   └── gallery/           # Curated visual media view
+├── components/            # Reusable React components
 ├── resources/
-│   ├── content.tsx        # All site content & personal info
-│   └── once-ui.config.ts  # Theme & UI configuration
-└── types/                 # TypeScript types
+│   ├── content.tsx        # Centralized data model (personal info, links, skills)
+│   └── once-ui.config.ts  # Theme schema and UI configuration
+└── types/                 # Global TypeScript interfaces and types
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
-### Requirements
+### Prerequisites
 
+Identify your environment dependencies before proceeding:
 - Node.js >= v18.17
+- npm (Node Package Manager)
 
-### 1. Clone the repository
+### Installation Guide
 
-```bash
-git clone https://github.com/VoinzzZ/Portofolio.git
-cd Portofolio
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/VoinzzZ/Portofolio.git
+   cd Portofolio
+   ```
 
-### 2. Install dependencies
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm install
-```
+3. **Initialize the development server**
+   ```bash
+   npm run dev
+   ```
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
 
-### 3. Run dev server
+## Configuration & Content Authoring
 
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## ✏️ Customization
-
-### Edit personal info & content
-
-```
+### Modifying Personal Data
+The application relies on a centralized content configuration file. Update your name, biography, professional history, and social links here:
+```text
 src/resources/content.tsx
 ```
 
-This is the main file where all personal data is configured — name, bio, social links, work experience, skills, and gallery images.
-
-### Edit theme & UI
-
-```
+### Theme Customization
+Adjust color palettes, typography, and layout settings using the Once UI configuration file:
+```text
 src/resources/once-ui.config.ts
 ```
 
-### Add a blog post
+### Creating New Content (Blog & Projects)
+New entries are created as MDX files with frontmatter metadata.
 
-Create a new `.mdx` file in `src/app/blog/posts/`:
-
+**Blog Post Example (`src/app/blog/posts/`):**
 ```mdx
 ---
-title: "Your Post Title"
+title: "Understanding Next.js App Router"
 publishedAt: "2026-02-19"
-summary: "A short description of the post."
-tag: "Go"
+summary: "An in-depth look at routing paradigms in modern Next.js applications."
+tag: "Next.js"
 ---
 
-Post content here...
+Your post content begins here...
 ```
 
-### Add a project
+**Project Showcase (`src/app/work/projects/`):**
+Follow a similar structure to blog posts, tailoring the frontmatter to project-specific metadata as required by the application schema.
 
-Create a new `.mdx` file in `src/app/work/projects/`.
+## Available Scripts
 
-## 📦 Scripts
+Utilize these npm scripts for development and deployment workflows:
 
-```bash
-npm run dev        # Start development server
-npm run build      # Build for production
-npm run start      # Start production server
-npm run lint       # Run ESLint
-```
+- `npm run dev`: Starts the local development server with Hot Module Replacement.
+- `npm run build`: Compiles the application into a highly optimized production build.
+- `npm run start`: Serves the production build previously compiled.
+- `npm run lint`: Executes ESLint to verify code quality and conformity.
 
-## 🔗 Links
+## Connect
 
-- **Live**: [coming soon]
-- **GitHub**: [github.com/VoinzzZ](https://github.com/VoinzzZ)
+- **Live Application**: [Coming Soon]
+- **GitHub**: [VoinzzZ](https://github.com/VoinzzZ)
 - **LinkedIn**: [Antony Kurniawan Nugroho](https://www.linkedin.com/in/antony-kurniawan-nugroho-079b5626b/)
 
-## 📄 License
+## License
 
-Built on top of [Magic Portfolio](https://github.com/once-ui-system/magic-portfolio), distributed under the [CC BY-NC 4.0 License](LICENSE).
+This project is built upon the [Magic Portfolio](https://github.com/once-ui-system/magic-portfolio) template. It is distributed under the [CC BY-NC 4.0 License](LICENSE).
