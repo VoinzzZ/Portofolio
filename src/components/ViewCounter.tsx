@@ -7,27 +7,17 @@ export const ViewCounter = () => {
   const [viewCount, setViewCount] = useState<number | null>(null);
 
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem("portfolio_visited");
-
-    if (!hasVisited) {
-      fetch("/api/views", { method: "POST" })
-        .then((res) => res.json())
-        .then((data) => {
-          setViewCount(data.view_count);
-          sessionStorage.setItem("portfolio_visited", "true");
-        })
-        .catch(() => {
-          fetch("/api/views")
-            .then((res) => res.json())
-            .then((data) => setViewCount(data.view_count))
-            .catch(() => setViewCount(0));
-        });
-    } else {
-      fetch("/api/views")
-        .then((res) => res.json())
-        .then((data) => setViewCount(data.view_count))
-        .catch(() => setViewCount(0));
-    }
+    // Always POST - the server handles IP deduplication
+    fetch("/api/views", { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => setViewCount(data.view_count))
+      .catch(() => {
+        // Fallback to GET if POST fails
+        fetch("/api/views")
+          .then((res) => res.json())
+          .then((data) => setViewCount(data.view_count))
+          .catch(() => setViewCount(0));
+      });
   }, []);
 
   if (viewCount === null) {
