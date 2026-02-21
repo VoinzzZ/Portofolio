@@ -112,10 +112,11 @@ Utilize these npm scripts for development and deployment workflows:
 
 ## Connect
 
-- **Live Application**: [Coming Soon]
+- **Live Application**: voinzz.vercel.app
 - **GitHub**: [VoinzzZ](https://github.com/VoinzzZ)
 - **LinkedIn**: [Antony Kurniawan Nugroho](https://www.linkedin.com/in/antony-kurniawan-nugroho-079b5626b/)
 
 ## License
+
 
 This project is built upon the [Magic Portfolio](https://github.com/once-ui-system/magic-portfolio) template. It is distributed under the [CC BY-NC 4.0 License](LICENSE).
