@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ComponentProps } from "react";
 import { Row, Text } from "@once-ui-system/core";
 
 type ViewCounterProps = {
-  onBackground?: string;
+  onBackground?: ComponentProps<typeof Text>["onBackground"];
   className?: string;
 };
 
