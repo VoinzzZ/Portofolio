@@ -1,22 +1,16 @@
--- Track per-device viewers to avoid double counting within a time window
-CREATE TABLE IF NOT EXISTS public.page_viewers (
-    page_id TEXT REFERENCES public.page_views (id) ON DELETE CASCADE,
-    viewer_id TEXT NOT NULL,
-    last_seen TIMESTAMPTZ NOT NULL DEFAULT now(),
-    PRIMARY KEY (page_id, viewer_id)
-);
+-- Add IP recording to page_viewers and extend increment_view_count to store it
 
--- Allow anonymous read/write since this is a public counter (adjust if needed)
-ALTER TABLE public.page_viewers ENABLE ROW LEVEL SECURITY;
+-- Add column if not exists (safe for repeated runs)
+ALTER TABLE public.page_viewers
+  ADD COLUMN IF NOT EXISTS last_ip TEXT;
 
-DROP POLICY IF EXISTS "allow anon page_viewers" ON public.page_viewers;
-
-CREATE POLICY "allow anon page_viewers" ON public.page_viewers FOR ALL USING (true)
-WITH
-    CHECK (true);
-
--- Update function to increment with dedupe per viewer within N hours (default 24)
-CREATE OR REPLACE FUNCTION public.increment_view_count(page_id TEXT, viewer_id TEXT, dedupe_hours INT DEFAULT 24)
+-- Recreate function with ip parameter (not used for dedupe, only logging)
+CREATE OR REPLACE FUNCTION public.increment_view_count(
+  page_id TEXT,
+  viewer_id TEXT,
+  ip TEXT DEFAULT NULL,
+  dedupe_hours INT DEFAULT 24
+)
 RETURNS BIGINT
 LANGUAGE plpgsql
 SECURITY DEFINER
@@ -26,7 +20,7 @@ DECLARE
   new_count BIGINT;
   seen page_viewers%ROWTYPE;
 BEGIN
-  -- Ensure the page row exists so the UPDATE below always has a target
+  -- Ensure the page row exists
   INSERT INTO page_views (id, view_count)
   VALUES (increment_view_count.page_id, 0)
   ON CONFLICT (id) DO NOTHING;
@@ -37,8 +31,9 @@ BEGIN
     AND pv.viewer_id = increment_view_count.viewer_id;
 
   IF NOT FOUND THEN
-    INSERT INTO page_viewers (page_id, viewer_id)
-    VALUES (increment_view_count.page_id, increment_view_count.viewer_id);
+    INSERT INTO page_viewers (page_id, viewer_id, last_ip)
+    VALUES (increment_view_count.page_id, increment_view_count.viewer_id, ip);
+
     UPDATE page_views
       SET view_count = view_count + 1, updated_at = now()
       WHERE id = increment_view_count.page_id
@@ -48,9 +43,10 @@ BEGIN
 
   IF seen.last_seen < now() - (dedupe_hours || ' hours')::INTERVAL THEN
     UPDATE page_viewers pv
-      SET last_seen = now()
+      SET last_seen = now(), last_ip = COALESCE(ip, pv.last_ip)
       WHERE pv.page_id = increment_view_count.page_id
         AND pv.viewer_id = increment_view_count.viewer_id;
+
     UPDATE page_views
       SET view_count = view_count + 1, updated_at = now()
       WHERE id = increment_view_count.page_id
@@ -58,14 +54,16 @@ BEGIN
     RETURN new_count;
   END IF;
 
-  -- Already counted recently: just refresh last_seen and return current count
+  -- Already counted recently: just refresh last_seen/ip and return current count
   UPDATE page_viewers pv
-    SET last_seen = now()
+    SET last_seen = now(), last_ip = COALESCE(ip, pv.last_ip)
     WHERE pv.page_id = increment_view_count.page_id
       AND pv.viewer_id = increment_view_count.viewer_id;
+
   SELECT view_count INTO new_count
   FROM page_views
   WHERE id = increment_view_count.page_id;
+
   RETURN new_count;
 END;
 $$;
