@@ -24,7 +24,7 @@ export async function GET() {
 
 export async function POST() {
   try {
-    const cookieStore = await cookies();
+    const cookieStore = cookies();
     let viewerId = cookieStore.get("viewer_id")?.value;
     const shouldSetCookie = !viewerId;
 
